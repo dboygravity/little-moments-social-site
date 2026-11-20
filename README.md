@@ -109,7 +109,7 @@ The Netlify site is an explicitly static visual preview. Its sign-in and registr
 
 To publish the static preview, connect the GitHub repository to Netlify and use the `main` branch. Netlify detects the publish folder from `netlify.toml`; no build command is needed. Alternatively, install and sign in to the Netlify CLI, then run `netlify deploy --prod --dir netlify-public`.
 
-To deploy the complete app instead, use a Python host with persistent storage for both `DATABASE_PATH` and `UPLOAD_FOLDER`, configure `APP_ENV=production` and a long random `FLASK_SECRET_KEY`, and serve Flask with a production WSGI server. Do not commit the SQLite database, uploaded user files, or secret key. A static Netlify deploy does not run Flask and cannot provide persistent SQLite or uploaded files.
+To deploy the complete app instead, use a Python host with persistent storage for both `DATABASE_PATH` and `UPLOAD_FOLDER`, configure `APP_ENV=production` and a long random `FLASK_SECRET_KEY`, and serve Flask with a production WSGI server. On Linux, Gunicorn is included in `requirements.txt` and can start the app with `gunicorn app:app`; it is excluded on Windows, where local development uses `python app.py`. Do not commit the SQLite database, uploaded user files, or secret key. A static Netlify deploy does not run Flask and cannot provide persistent SQLite or uploaded files.
 
 ## Debug common issues
 
