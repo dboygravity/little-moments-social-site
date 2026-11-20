@@ -12,6 +12,11 @@
   status = 200
 
 [[redirects]]
+  from = "/profile/1"
+  to = "/profile.html"
+  status = 200
+
+[[redirects]]
   from = "/profile/*"
   to = "/profile.html"
   status = 200
