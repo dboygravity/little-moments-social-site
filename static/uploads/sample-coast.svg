@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs><linearGradient id="sky" y2="1"><stop stop-color="#f9ceab"/><stop offset="1" stop-color="#f7e6c6"/></linearGradient></defs>
+  <rect width="900" height="350" fill="url(#sky)"/>
+  <circle cx="680" cy="160" r="72" fill="#fff4cf"/>
+  <rect y="350" width="900" height="300" fill="#76b8b7"/>
+  <path d="M0 395q120-40 240 0t240 0 240 0 240 0v42q-120 40-240 0t-240 0-240 0-240 0z" fill="#b9e1d3"/>
+  <path d="M0 488q120-40 240 0t240 0 240 0 240 0v162H0z" fill="#3e8c91"/>
+  <path d="M0 555q150-52 300 0t300 0 300 0v95H0z" fill="#276f7a" opacity=".7"/>
+  <path d="M100 355q45-90 100 0m-65-5q37-70 74 0m518 8q45-95 95 0m-63-4q35-73 70 0" fill="none" stroke="#47735e" stroke-width="10" stroke-linecap="round"/>
+  <text x="450" y="590" text-anchor="middle" fill="#fff" font-family="sans-serif" font-size="25" letter-spacing="6">A LITTLE FRESH AIR</text>
+</svg>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7fb">
+    <title>Little Moments — Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">little<span>moments</span></a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" id="profile-nav" href="/profile/1">Profile</a>
+            <a class="nav-link" href="#create-post">Create post</a>
+        </nav>
+        <div class="account-menu">
+            <a class="signed-in-name" id="signed-in-name" href="/profile/1">My profile</a>
+            <form action="/logout" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button class="logout-button" type="submit">Log out</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="page-layout">
+        <section class="feed-column" aria-label="News feed">
+            <div class="page-heading">
+                <p class="eyebrow">YOUR LITTLE CORNER</p>
+                <h1>Good things, shared.</h1>
+                <p class="muted">A friendly feed for life's little moments.</p>
+            </div>
+
+            <section class="composer card" id="create-post">
+                <div class="composer-heading">
+                    <img class="avatar" id="composer-avatar" src="" alt="">
+                    <div>
+                        <h2>Share a moment</h2>
+                        <p class="muted">What's happening today?</p>
+                    </div>
+                </div>
+                <form id="post-form">
+                    <label class="field-label" for="caption">Caption</label>
+                    <textarea id="caption" name="caption" rows="3" maxlength="500"
+                              placeholder="Write a little something..." required></textarea>
+                    <div class="composer-actions">
+                        <label class="upload-button" for="image">
+                            <span aria-hidden="true">＋</span> Add a photo
+                            <input id="image" name="image" type="file"
+                                   accept=".png,.jpg,.jpeg,.gif,.webp,image/png,image/jpeg,image/gif,image/webp" required>
+                        </label>
+                        <span class="file-name muted" id="file-name">PNG, JPG, GIF or WEBP · max 5 MB</span>
+                        <button class="button button-primary" type="submit">Share post</button>
+                    </div>
+                    <p class="form-message" id="post-message" role="status"></p>
+                </form>
+            </section>
+
+            <div class="feed-heading">
+                <h2>Latest moments</h2>
+                <span class="muted" id="feed-status"></span>
+            </div>
+            <section class="post-list" id="post-list" aria-live="polite"></section>
+        </section>
+
+        <aside class="side-column">
+            <section class="welcome-card card">
+                <div class="welcome-sparkle" aria-hidden="true">✦</div>
+                <p class="eyebrow">A GENTLER SOCIAL FEED</p>
+                <h2>Make room for the small stuff.</h2>
+                <p>Share a photo, leave a kind note, and enjoy what your community is up to.</p>
+            </section>
+            <section class="demo-card card">
+                <h2>Try it out</h2>
+                <ul>
+                    <li>Create an account or sign in</li>
+                    <li>Like a post or leave a comment</li>
+                    <li>Share your own photo</li>
+                </ul>
+                <p class="tiny muted">Posts and interactions are saved in SQLite.</p>
+            </section>
+        </aside>
+    </main>
+    <footer class="site-footer">Made for sharing little moments. <span>♥</span></footer>
+</body>
+</html>

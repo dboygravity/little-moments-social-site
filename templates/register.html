@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7fb">
+    <title>Little Moments — Create account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-page">
+    <main class="auth-card card">
+        <a class="brand auth-brand" href="/">little<span>moments</span></a>
+        <p class="eyebrow">YOUR LITTLE CORNER</p>
+        <h1>Create your account.</h1>
+        <p class="auth-intro">A cozy place to share the everyday.</p>
+        {% if error %}<p class="auth-error" role="alert">{{ error }}</p>{% endif %}
+        <form action="/register" method="post" class="auth-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocomplete="username"
+                   minlength="3" maxlength="20" pattern="[A-Za-z0-9_]{3,20}"
+                   aria-describedby="username-help" required autofocus>
+            <span id="username-help" class="auth-help">3–20 letters, numbers, or underscores.</span>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="new-password"
+                   minlength="12" maxlength="128" aria-describedby="password-help" required>
+            <span id="password-help" class="auth-help">Use at least 12 characters.</span>
+            <button class="button button-primary auth-submit" type="submit">Create account</button>
+        </form>
+        <p class="auth-switch">Already have an account? <a href="/login">Sign in</a></p>
+    </main>
+</body>
+</html>

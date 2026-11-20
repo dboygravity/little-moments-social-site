@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7fb">
+    <title>Little Moments — Preview</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">little<span>moments</span></a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a class="nav-link active" href="/">Home</a>
+            <a class="nav-link" href="/profile/1">Profile</a>
+            <a class="nav-link" href="/login">Sign in</a>
+        </nav>
+        <a class="button button-primary preview-register-link" href="/register">Join</a>
+    </header>
+    <main class="page-layout">
+        <section class="feed-column">
+            <div class="page-heading">
+                <p class="eyebrow">YOUR LITTLE CORNER</p>
+                <h1>Good things, shared.</h1>
+                <p class="muted">A friendly feed for life's little moments.</p>
+            </div>
+            <aside class="preview-banner card" role="note">
+                <strong>Static preview</strong>
+                <p>This Netlify page is a visual preview. Sign-in, posting, likes, and comments work in the local Flask app, not on this static site.</p>
+                <a href="https://github.com/dboygravity/little-moments-social-site#run-locally-in-vs-code">See how to run the full app locally</a>
+            </aside>
+            <div class="feed-heading"><h2>Latest moments</h2><span class="muted">Sample posts</span></div>
+            <section class="post-list" aria-label="Sample news feed">
+                <article class="post-card card">
+                    <header class="post-header">
+                        <img class="avatar" src="/uploads/avatar-maya.svg" alt="">
+                        <div><div class="post-author">maya</div><div class="post-time">Sample post</div></div>
+                    </header>
+                    <img class="post-image" src="/uploads/sample-coffee.svg" alt="Illustration of a warm cup of coffee">
+                    <div class="post-content">
+                        <div class="post-actions"><button class="like-button" type="button" disabled>♡ <span>Likes are disabled in preview</span></button></div>
+                        <p class="post-caption"><strong>maya</strong> Slow mornings and good coffee.</p>
+                    </div>
+                </article>
+                <article class="post-card card">
+                    <header class="post-header">
+                        <img class="avatar" src="/uploads/avatar-leo.svg" alt="">
+                        <div><div class="post-author">leo</div><div class="post-time">Sample post</div></div>
+                    </header>
+                    <img class="post-image" src="/uploads/sample-coast.svg" alt="Illustration of a quiet beach">
+                    <div class="post-content">
+                        <div class="post-actions"><button class="like-button" type="button" disabled>♡ <span>Likes are disabled in preview</span></button></div>
+                        <p class="post-caption"><strong>leo</strong> A little fresh air goes a long way.</p>
+                    </div>
+                </article>
+                <article class="post-card card">
+                    <header class="post-header">
+                        <img class="avatar" src="/uploads/avatar-amina.svg" alt="">
+                        <div><div class="post-author">amina</div><div class="post-time">Sample post</div></div>
+                    </header>
+                    <img class="post-image" src="/uploads/sample-flowers.svg" alt="Illustration of colorful flowers">
+                    <div class="post-content">
+                        <div class="post-actions"><button class="like-button" type="button" disabled>♡ <span>Likes are disabled in preview</span></button></div>
+                        <p class="post-caption"><strong>amina</strong> Found some color on my walk today.</p>
+                    </div>
+                </article>
+            </section>
+        </section>
+        <aside class="side-column">
+            <section class="welcome-card card">
+                <div class="welcome-sparkle" aria-hidden="true">✦</div>
+                <p class="eyebrow">A GENTLER SOCIAL FEED</p>
+                <h2>Make room for the small stuff.</h2>
+                <p>Share a photo, leave a kind note, and enjoy what your community is up to.</p>
+            </section>
+        </aside>
+    </main>
+    <footer class="site-footer">Static preview · Full app runs locally with Flask. <span>♥</span></footer>
+</body>
+</html>

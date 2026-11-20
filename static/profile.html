@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7fb">
+    <title>Little Moments — Profile preview</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">little<span>moments</span></a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link active" href="/profile/1">Profile</a>
+            <a class="nav-link" href="/login">Sign in</a>
+        </nav>
+    </header>
+    <main class="profile-page">
+        <section class="profile-card card">
+            <img class="profile-avatar" src="/uploads/avatar-maya.svg" alt="">
+            <div><p class="eyebrow">SAMPLE PROFILE</p><h1>maya</h1><p>Sharing a little bit of everyday life.</p></div>
+        </section>
+        <aside class="preview-banner card" role="note">
+            <strong>Static preview</strong>
+            <p>Profiles are sample-only here. User accounts and profile data load from SQLite in the local Flask app.</p>
+            <a href="/">Back to sample feed</a>
+        </aside>
+    </main>
+    <footer class="site-footer">Static preview · Full app runs locally with Flask. <span>♥</span></footer>
+</body>
+</html>

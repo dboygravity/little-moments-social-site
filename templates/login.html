@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7fb">
+    <title>Little Moments — Sign in</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="auth-page">
+    <main class="auth-card card">
+        <a class="brand auth-brand" href="/">little<span>moments</span></a>
+        <p class="eyebrow">WELCOME BACK</p>
+        <h1>Sign in to your corner.</h1>
+        <p class="auth-intro">Pick up where your little moments left off.</p>
+        {% if error %}<p class="auth-error" role="alert">{{ error }}</p>{% endif %}
+        <form action="/login" method="post" class="auth-form">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <label for="username">Username</label>
+            <input id="username" name="username" type="text" autocomplete="username"
+                   minlength="3" maxlength="20" required autofocus>
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password"
+                   maxlength="128" required>
+            <button class="button button-primary auth-submit" type="submit">Sign in</button>
+        </form>
+        <p class="auth-switch">New here? <a href="/register">Create an account</a></p>
+    </main>
+</body>
+</html>

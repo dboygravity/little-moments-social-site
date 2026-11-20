@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f8d7b8"/><stop offset="1" stop-color="#d89f79"/></linearGradient></defs>
+  <rect width="900" height="650" fill="url(#bg)"/>
+  <circle cx="145" cy="115" r="90" fill="#fff5df" opacity=".55"/>
+  <path d="M0 470Q230 400 450 470t450 0v180H0z" fill="#c97e65" opacity=".42"/>
+  <ellipse cx="450" cy="485" rx="245" ry="50" fill="#765344" opacity=".3"/>
+  <path d="M295 242h310l-30 230q-5 48-48 48H373q-43 0-48-48z" fill="#fff9ed"/>
+  <path d="M605 290h45q65 0 65 64t-75 64h-47" fill="none" stroke="#fff9ed" stroke-width="31"/>
+  <ellipse cx="450" cy="245" rx="155" ry="42" fill="#ede0ce"/>
+  <ellipse cx="450" cy="246" rx="127" ry="28" fill="#724735"/>
+  <path d="M420 241q30-30 58 0t-15 17-44 10" fill="none" stroke="#d7a47e" stroke-width="8" stroke-linecap="round"/>
+  <path d="M390 205q-20-35 5-57m55 55q-20-35 5-57m55 57q-20-35 5-57" fill="none" stroke="#fff7e6" stroke-width="7" stroke-linecap="round" opacity=".7"/>
+  <text x="450" y="575" text-anchor="middle" fill="#fff9ed" font-family="sans-serif" font-size="25" letter-spacing="6">SLOW MORNING</text>
+</svg>

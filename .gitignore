@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+database/*.db
+static/uploads/[0-9a-f]*.png
+static/uploads/[0-9a-f]*.jpg
+static/uploads/[0-9a-f]*.jpeg
+static/uploads/[0-9a-f]*.gif
+static/uploads/[0-9a-f]*.webp
+.venv/
+.netlify/
+.env
+.env.*
+!.env.example

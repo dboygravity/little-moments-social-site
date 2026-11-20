@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f7fb">
+    <title>Little Moments — Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/profile.js') }}" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <a class="brand" href="/">little<span>moments</span></a>
+        <nav class="main-nav" aria-label="Main navigation">
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link active" href="#" aria-current="page">Profile</a>
+            <a class="nav-link" href="/#create-post">Create post</a>
+        </nav>
+        <div class="account-menu">
+            <a class="signed-in-name" id="signed-in-name" href="/profile/1">My profile</a>
+            <form action="/logout" method="post">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                <button class="logout-button" type="submit">Log out</button>
+            </form>
+        </div>
+    </header>
+
+    <main class="profile-page" data-profile-user-id="{{ profile_user_id }}">
+        <section class="profile-card card" id="profile-details" aria-live="polite">
+            <p class="muted">Loading profile…</p>
+        </section>
+        <div class="feed-heading profile-feed-heading">
+            <h2>Shared moments</h2>
+            <span class="muted" id="profile-feed-status"></span>
+        </div>
+        <section class="post-list profile-post-list" id="post-list" aria-live="polite"></section>
+    </main>
+    <footer class="site-footer">Made for sharing little moments. <span>♥</span></footer>
+</body>
+</html>
