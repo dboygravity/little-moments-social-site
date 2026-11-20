@@ -48,7 +48,20 @@ def csrf_token():
     return session["csrf_token"]
 
 
+def auth_form_csrf_token():
+    issued_at = int(datetime.now(timezone.utc).timestamp())
+    nonce = secrets.token_urlsafe(18)
+    payload = f"{issued_at}.{nonce}"
+    signature = hmac.new(
+        app.secret_key.encode("utf-8"),
+        f"auth-form:{payload}".encode("utf-8"),
+        hashlib.sha256,
+    ).hexdigest()
+    return f"{payload}.{signature}"
+
+
 app.jinja_env.globals["csrf_token"] = csrf_token
+app.jinja_env.globals["auth_form_csrf_token"] = auth_form_csrf_token
 
 
 def get_db_connection():
@@ -259,6 +272,26 @@ def csrf_is_valid(token):
     return isinstance(token, str) and bool(expected) and hmac.compare_digest(token, expected)
 
 
+def auth_form_csrf_is_valid(token):
+    if not isinstance(token, str):
+        return False
+    try:
+        issued_at, nonce, signature = token.split(".", 2)
+        issued_at = int(issued_at)
+    except (ValueError, TypeError):
+        return False
+    now = int(datetime.now(timezone.utc).timestamp())
+    if not nonce or abs(now - issued_at) > 2 * 60 * 60:
+        return False
+    payload = f"{issued_at}.{nonce}"
+    expected = hmac.new(
+        app.secret_key.encode("utf-8"),
+        f"auth-form:{payload}".encode("utf-8"),
+        hashlib.sha256,
+    ).hexdigest()
+    return hmac.compare_digest(signature, expected)
+
+
 @app.before_request
 def enforce_login_and_api_csrf():
     if request.endpoint in {"login", "login_submit", "register", "register_submit", "static"}:
@@ -306,7 +339,7 @@ def login():
 
 @app.post("/login")
 def login_submit():
-    if not csrf_is_valid(request.form.get("csrf_token")):
+    if not auth_form_csrf_is_valid(request.form.get("csrf_token")):
         return render_template(
             "login.html", error="This form expired. Please refresh and try again."
         ), 400
@@ -356,7 +389,7 @@ def register():
 @app.post("/register")
 def register_submit():
     csrf_token_value = request.form.get("csrf_token")
-    if not csrf_is_valid(csrf_token_value):
+    if not auth_form_csrf_is_valid(csrf_token_value):
         return render_template(
             "register.html", error="This form expired. Please refresh and try again."
         ), 400

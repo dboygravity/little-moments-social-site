@@ -42,6 +42,20 @@ class AuthenticationTests(unittest.TestCase):
         self.assertEqual(self.client.get("/").status_code, 302)
         self.assertEqual(self.client.get("/api/posts").status_code, 401)
 
+    def test_login_form_token_works_without_a_prior_session_cookie(self):
+        token = self.csrf_from_page("/login")
+        fresh_client = social_app.app.test_client()
+        response = fresh_client.post(
+            "/login",
+            data={
+                "csrf_token": token,
+                "username": "maya",
+                "password": social_app.DEMO_PASSWORD,
+            },
+        )
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(fresh_client.get("/api/session").status_code, 200)
+
     def test_registration_hashes_password_and_logs_user_in(self):
         response = self.create_account()
         self.assertEqual(response.status_code, 302)

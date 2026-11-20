@@ -73,7 +73,7 @@ The local sample accounts are `maya`, `leo`, and `amina`. Their local-only sampl
 - Passwords are stored as Werkzeug password hashes, never as plain text.
 - New passwords must be 12–128 characters. Usernames are 3–20 letters, numbers, or underscores.
 - The signed session cookie is HTTP-only and `SameSite=Lax`; it expires after 12 hours. Production mode also marks it `Secure`.
-- HTML forms and API mutations use CSRF tokens. Five failed sign-ins from one IP hash trigger a 15-minute lockout.
+- Sign-in and registration forms use signed, two-hour CSRF tokens; authenticated API mutations use session-bound CSRF tokens. Five failed sign-ins from one IP hash trigger a 15-minute lockout.
 - Database access uses parameterized SQL. User text is rendered as text, not HTML.
 - Uploads are limited to PNG, JPG/JPEG, GIF, or WEBP images, checked against their file signatures, and capped at 5 MB.
 - The app is still a learning example; it lacks production features such as email verification, password recovery, account moderation, and a multi-instance rate-limit service.

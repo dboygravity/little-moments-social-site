@@ -15,7 +15,7 @@
         <p class="auth-intro">A cozy place to share the everyday.</p>
         {% if error %}<p class="auth-error" role="alert">{{ error }}</p>{% endif %}
         <form action="/register" method="post" class="auth-form">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="csrf_token" value="{{ auth_form_csrf_token() }}">
             <label for="username">Username</label>
             <input id="username" name="username" type="text" autocomplete="username"
                    minlength="3" maxlength="20" pattern="[A-Za-z0-9_]{3,20}"

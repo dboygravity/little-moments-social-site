@@ -15,7 +15,7 @@
         <p class="auth-intro">Pick up where your little moments left off.</p>
         {% if error %}<p class="auth-error" role="alert">{{ error }}</p>{% endif %}
         <form action="/login" method="post" class="auth-form">
-            <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+            <input type="hidden" name="csrf_token" value="{{ auth_form_csrf_token() }}">
             <label for="username">Username</label>
             <input id="username" name="username" type="text" autocomplete="username"
                    minlength="3" maxlength="20" required autofocus>
